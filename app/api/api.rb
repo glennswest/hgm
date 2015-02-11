@@ -4,7 +4,8 @@ module API
   class Base < Grape::API
     default_format :json
 
-    mount API::HighScores => '/high_scores'
+    mount API::HostGroups => 'host_group'
+    mount API::Hosts => 'host'
 
     add_swagger_documentation(
       base_path: "/api",

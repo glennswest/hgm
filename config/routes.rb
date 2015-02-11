@@ -1,7 +1,9 @@
 Example::Application.routes.draw do
-  resources :high_scores
+  resources :host_groups
+  resources :hosts
+  resources :tags
 
-  root 'high_scores#index'
+  root 'host_groups#index'
 
   # API+API Documentation
   mount API::Base => '/api'
