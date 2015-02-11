@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206183130) do
+ActiveRecord::Schema.define(version: 20150211051041) do
 
-  create_table "high_scores", force: true do |t|
+  create_table "default_groups", force: :cascade do |t|
+    t.string  "emailaddress"
+    t.string  "groupname"
+    t.integer "host_group_id"
+  end
+
+  create_table "high_scores", force: :cascade do |t|
     t.string   "name"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "host_groups", force: :cascade do |t|
+    t.string "groupname"
+    t.string "emailaddress"
+  end
+
+  create_table "hosts", force: :cascade do |t|
+    t.string  "hostname"
+    t.string  "ipaddr"
+    t.string  "type"
+    t.string  "macaddr"
+    t.integer "host_group_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "tag"
+    t.integer "hostgroupid"
+    t.integer "hostid"
   end
 
 end
