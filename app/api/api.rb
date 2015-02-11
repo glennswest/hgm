@@ -6,6 +6,7 @@ module API
 
     mount API::HostGroups => 'host_group'
     mount API::Hosts => 'host'
+    mount API::Tags => 'tag'
 
     add_swagger_documentation(
       base_path: "/api",
